@@ -2,7 +2,8 @@ package com.gslab.spring.beans;
 
 public class Address {
 	
-	int pincode;
+	private int pincode;
+	private String type;
 
 	public int getPincode() {
 		return pincode;
@@ -11,6 +12,16 @@ public class Address {
 	public void setPincode(int pincode) {
 		this.pincode = pincode;
 	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+	
+	
 	
 	
 }
