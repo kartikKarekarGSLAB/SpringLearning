@@ -3,6 +3,9 @@ package com.gslab.spring.beans;
 import java.util.List;
 import java.util.Set;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 public class Employee {
 
 	private int id;
@@ -12,16 +15,24 @@ public class Employee {
 	private List<Address> address;
 	private Set<String> skills;
 	
+	@PostConstruct
 	public void init() {
 		System.out.println("inside init method");
 	}
 	
+	@PreDestroy
 	public void destory() {
 		System.out.println("inside destory method");
 	}
 	
 	public Employee() {
 		super();
+	}
+
+	public Employee(int id, String name) {
+		super();
+		this.id = id;
+		this.name = name;
 	}
 
 	public int getId() {

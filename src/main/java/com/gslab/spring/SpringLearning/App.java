@@ -1,9 +1,7 @@
 package com.gslab.spring.SpringLearning;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.ImportResource;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.gslab.spring.beans.Employee;
@@ -33,8 +31,23 @@ public class App
     	employee.getAddress().stream().forEach((address) -> {
     		System.out.println("pincode ::"+ address.getPincode() + ", TYPE="+address.getType());
     	});
+    	
+    	Employee employee2 = (Employee) content.getBean("employee2");
+    	System.out.println("\nexisting object hash ::"+ employee.hashCode() +"\nother Object hash::"+ employee2.hashCode()+ "\n");
+    	
     	System.out.println("Implmentation added default ::"+employee.getSkills().getClass().getName());
     	employee.getSkills().stream().forEach(System.out::println);
+    	
+    	
+    	Employee empPropertySchema = (Employee) content.getBean("empPropertySchema");
+    	System.out.println("\n\nBean initalize using properties schema ::"+empPropertySchema+"\n\n");
+    	
+    	Employee empconstructor = (Employee) content.getBean("empconstructor");
+    	System.out.println("\n\nBean initalize using constructor ::"+empconstructor+"\n\n");
+    	
+    	Employee empConstructorSchema = (Employee) content.getBean("empConstructorSchema");
+    	System.out.println("\n\nBean initalize using constructor schema ::"+empConstructorSchema+"\n\n");
+    	
     	content.registerShutdownHook();
     	
     	//Annotation based configuration.
